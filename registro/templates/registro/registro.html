@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Registro{% endblock subtitulo %}
+{% block headerimage %}{% static 'assets/img/homeheader.jpg' %}{% endblock headerimage %}
+{% block headertitulo %}REGISTRO{% endblock headertitulo %}
+{% block headersubtitulo %}Completa tus datos para unirte a la comunidad.{% endblock headersubtitulo %}
+
+{% block contenido %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Registrarse" />
+</form>
+{% endblock contenido %}

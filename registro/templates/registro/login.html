@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Login{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <h2>Ingresar al sitio</h2>
+    <h10>Coloca tu usuario y contraseña para entrar.</h>
+    <form class="form-control form-text" method="post" style=" margin-top:10px">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-secondary" type="submit" value="LOGIN" />
+    </form>
+</section>
+</div>
+{% endblock contenido %}

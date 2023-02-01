@@ -30,3 +30,31 @@ def registro(request):
         template_name='registro/registro.html',
         context={'form': formulario},
     )
+
+def login_view(request):
+    next_url = request.GET.get('next')
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            usuario = data.get('username')
+            password = data.get('password')
+            user = authenticate(username=usuario, password=password)
+            # user puede ser un usuario o None
+            if user:
+                login(request=request, user=user)
+                if next_url:
+                    return redirect(next_url)
+                url_exitosa = reverse('home')
+                return redirect(url_exitosa)
+    else:  # GET
+        form = AuthenticationForm()
+    return render(
+        request=request,
+        template_name='registro/login.html',
+        context={'form': form},
+    )
+
+class CustomLogoutView(LogoutView):
+    template_name = 'registro/logout.html'

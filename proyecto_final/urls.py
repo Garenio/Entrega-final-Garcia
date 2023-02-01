@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from tecnoreview.views import home
-from registro.views import registro
+from registro.views import registro, login_view, CustomLogoutView
 
 urlpatterns = [
     path('', home, name="home"),
     path('admin/', admin.site.urls),
     path('registro/', registro, name="registro"),
+    path('login/', login_view, name="login"),
+    path('logout/', CustomLogoutView.as_view(), name="logout"),
 ]

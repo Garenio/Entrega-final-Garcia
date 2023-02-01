@@ -2,14 +2,18 @@
 {% load static %}
 
 {% block subtitulo %}Registro{% endblock subtitulo %}
-{% block headerimage %}{% static 'assets/img/homeheader.jpg' %}{% endblock headerimage %}
-{% block headertitulo %}REGISTRO{% endblock headertitulo %}
-{% block headersubtitulo %}Completa tus datos para unirte a la comunidad.{% endblock headersubtitulo %}
 
 {% block contenido %}
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Registrarse" />
-</form>
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <h2>Registro de usuario</h2>
+    <h10>Completa tus datos para unirte a la comunidad.</h>
+    <form class="form-control form-text" method="post" style=" margin-top:10px">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-secondary" type="submit" value="REGISTRO" />
+    </form>
+</section>
+</div>
 {% endblock contenido %}

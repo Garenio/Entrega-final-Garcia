@@ -2961,7 +2961,7 @@ textarea.form-control-lg {
 
 .btn {
   display: inline-block;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 800;
   line-height: 1.5;
   color: #212529;
@@ -3028,13 +3028,13 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #212529;
+  border-color: #212529;
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5c636a;
-  border-color: #565e64;
+  background-color: #1b2f42;
+  border-color: #1b2f42;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
   color: #fff;
@@ -3970,7 +3970,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.2rem;
+  padding-top: 0.3rem;
   padding-bottom: 0.2em;
 }
 .navbar > .container,
@@ -4494,7 +4494,7 @@ textarea.form-control-lg {
 }
 
 .card-header {
-  padding: 0.5rem 1rem;
+  padding: 6rem 3rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -11069,7 +11069,7 @@ blockquote {
     color: #fff;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: #69B9E1;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     color: #fff;

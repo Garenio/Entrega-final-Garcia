@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block subtitulo %}Nosotros{% endblock subtitulo %}
+
+
+{% block contenido %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url({% static 'assets/img/about-bg.jpg' %})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Sobre Nosotros</h1>
+                    <span class="subheading">Siempre apostando al futuro.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Somos un grupo de aficionados de lo último en tecnología y nos encanta compartir nuestros descubrimientos y noticias.</p>
+                        <p>Gracias al apoyo de todos nuestros usuarios y colaboradores logramos crear una comunidad sólida colaborativa para que esto funcione día a día.</p>
+                        <p>Nos encontramos constantemente buscando la perfección para darle la mejor experiencia a nuestros usuarios y visitantes.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+{% endblock contenido %}

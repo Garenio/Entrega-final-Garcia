@@ -5,3 +5,9 @@ def home(request):
         request=request,
         template_name='tecnoreview/home.html',
     )
+
+def about(request):
+    return render(
+        request=request,
+        template_name='tecnoreview/about.html',
+    )

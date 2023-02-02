@@ -29,10 +29,18 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'home' %}>HOME</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'about' %}>Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Reviews</a></li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="">Hola, {{ user }}!</a></li>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="img" src="{{ user.avatar.imagen.url }}" style="width:30px; height:30px"/>
+                             ¡Hola, {{ user.username }}!
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a <a class="dropdown-item" href="#">Mis datos</a></li>
+                            <li><a <a class="dropdown-item" href="#">Cambiar Avatar</a></li>
+                            <li><a <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a></li>
+                          </ul>
                         {% else %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'registro' %}>REGISTRO</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'login' %}>LOGIN</a></li>

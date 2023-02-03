@@ -32,8 +32,9 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'about' %}>Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Reviews</a></li>
                         {% if user.is_authenticated %}
+                        <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class="img" src="{{ user.avatar.imagen.url }}" style="width:30px; height:30px"/>
+                            <img class="img" src="{{ user.avatar.imagen.url }}" style="width:30px; height:30px; margin: 0 5px 0 0"/>
                              ¡Hola, {{ user.username }}!
                           </button>
                           <ul class="dropdown-menu">
@@ -41,6 +42,7 @@
                             <li><a <a class="dropdown-item" href="#">Cambiar Avatar</a></li>
                             <li><a <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a></li>
                           </ul>
+                        </div>
                         {% else %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'registro' %}>REGISTRO</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url 'login' %}>LOGIN</a></li>

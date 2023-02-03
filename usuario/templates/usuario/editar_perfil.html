@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Editar Perfil{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <h2>Editar Perfil</h2>
+    <h10>Selecciona los datos que quieras cambiar y luego dale click en guardar.</h10>
+    <form class="form-control form-text" method="post" style=" margin-top:10px">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-outline-dark" type="submit" value="GUARDAR" />
+    </form>
+</section>
+</div>
+{% endblock contenido %}

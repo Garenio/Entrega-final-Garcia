@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from usuario.models import Avatar
-from usuario.forms import AvatarFormulario
+from usuario.forms import AvatarFormulario, UserUpdateForm
 
 @login_required
 def agregar_avatar(request):
@@ -24,7 +24,7 @@ def agregar_avatar(request):
             avatar = formulario.save()
             avatar.user = request.user
             avatar.save()
-            url_exitosa = reverse('home')
+            url_exitosa = reverse('perfil')
             return redirect(url_exitosa)
     else:  # GET
         formulario = AvatarFormulario()
@@ -39,3 +39,12 @@ def perfil(request):
         request=request,
         template_name='usuario/perfil.html',
         )
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserUpdateForm
+    success_url = reverse_lazy('perfil')
+    template_name = 'usuario/editar_perfil.html'
+
+    def get_object(self, queryset=None):
+        return self.request.user

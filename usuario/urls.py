@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from usuario.views import agregar_avatar, perfil, ProfileUpdateView
+from usuario.views import agregar_avatar, perfil, ProfileUpdateView, PasswordUpdateView, password_exitoso
 
 urlpatterns = [
     path('editar-avatar/', agregar_avatar, name="agregar_avatar"),
     path('perfil/', perfil, name="perfil"),
     path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
+    path('cambiar-password/', PasswordUpdateView.as_view(), name="cambiar_password"),
+    path('password-exitoso/', password_exitoso, name="password_exitoso"),
 ]

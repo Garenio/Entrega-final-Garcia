@@ -6,14 +6,14 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView, PasswordChangeView
 from django.contrib.auth import login, authenticate
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from usuario.models import Avatar
-from usuario.forms import AvatarFormulario, UserUpdateForm
+from usuario.forms import AvatarFormulario, UserUpdateForm, PasswordUpdateForm
 
 @login_required
 def agregar_avatar(request):
@@ -48,3 +48,11 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+class PasswordUpdateView(PasswordChangeView):
+    form_class = PasswordUpdateForm
+    template_name = 'usuario/cambiar_password.html'
+    success_url = reverse_lazy('password_exitoso')
+
+def password_exitoso(request):
+    return render(request, 'usuario/password_exitoso.html', {})

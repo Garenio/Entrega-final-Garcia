@@ -32,4 +32,10 @@ def agregar_avatar(request):
         request=request,
         template_name='usuario/formulario_avatar.html',
         context={'form': formulario},
-    )
+        )
+
+def perfil(request):
+    return render(
+        request=request,
+        template_name='usuario/perfil.html',
+        )

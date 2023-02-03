@@ -38,8 +38,8 @@
                              ¡Hola, {{ user.username }}!
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a <a class="dropdown-item" href="#">Mis datos</a></li>
-                            <li><a <a class="dropdown-item" href="#">Cambiar Avatar</a></li>
+                            <li><a <a class="dropdown-item" href="{% url 'perfil' %}">Mis datos</a></li>
+                            <li><a <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Cambiar Avatar</a></li>
                             <li><a <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a></li>
                           </ul>
                         </div>

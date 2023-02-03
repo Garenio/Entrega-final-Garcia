@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Perfil{% endblock subtitulo %}
+
+{% block contenido %}
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      padding: 10px;
+    }
+    
+    .left {
+      width: 30%;
+    }
+    
+    .right {
+      width: 70%;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+
+<section style="width:50%; margin-right:auto; margin-left:150px; padding: 100px 0 0 0;">
+    <div class="row">
+        <div class="column left">
+            <img class="img" src="{{ user.avatar.imagen.url }}" style="width:200px; height:200px"/> <br>
+        </div>
+        <div class="column right">
+            <p><span style="color:#2082dd; bold;"><strong>Usuario:</strong></span> <spawn>{{ user.username }}</span></p>
+            <p><span style="color:#2082dd"><strong>Nombre:</strong></span> <spawn>{{ user.first_name }}</span></p>
+            <p><span style="color:#2082dd"><strong>Apellido:</strong></span> <spawn>{{ user.last_name }}</span></p>
+            <p><span style="color:#2082dd"><strong>Email:</strong></span> <spawn>{{ user.email }}</span></p>
+        </div>
+      </div>
+      <div style="margin: 10px 0 30px -10px;">
+        <a class="btn btn-outline-dark" href="{% url 'agregar_avatar' %}">Cambiar Avatar</a>
+        <a class="btn btn-outline-dark" href="">Editar Datos</a>
+        <a class="btn btn-outline-dark" href="">Cambiar Contraseña</a>  
+      </div>
+</section>
+
+{% endblock contenido %}

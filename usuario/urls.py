@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from usuario.views import agregar_avatar
+from usuario.views import agregar_avatar, perfil
 
 urlpatterns = [
     path('editar-avatar/', agregar_avatar, name="agregar_avatar"),
+    path('perfil/', perfil, name="perfil"),
 ]

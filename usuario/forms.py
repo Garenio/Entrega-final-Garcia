@@ -1,5 +1,6 @@
 from django import forms
-from usuario.models import Avatar 
+from django.contrib.auth.models import User
+from usuario.models import Avatar
 
 class AvatarFormulario(forms.ModelForm):
 

@@ -1,5 +1,5 @@
 from django import forms
-from blog.models import Review 
+from blog.models import Review
 
 class ReviewFormulario(forms.ModelForm):
     cuerpo = forms.CharField(max_length=1000, widget=forms.Textarea())
@@ -13,3 +13,11 @@ class ReviewFormulario(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['usuario','titulo','subtitulo','cuerpo','fecha_publicacion','autor','imagen']
+
+class ReviewUpdateForm(forms.ModelForm):
+    cuerpo = forms.CharField(max_length=2000, widget=forms.Textarea())
+    fecha_publicacion = forms.DateField(required=True)
+
+    class Meta:
+        model = Review
+        fields = ['titulo','subtitulo','cuerpo','fecha_publicacion','autor']

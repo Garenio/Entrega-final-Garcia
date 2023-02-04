@@ -18,12 +18,14 @@
     </div>
 </header>
 
-<div class="container px-4 px-lg-5">
 <section style="padding:10px 10px;">
-    <p><h6>{{object.autor}}</h6> <h6>{{object.fecha_publicacion}}</h6></p>
-    <span>{{object.cuerpo}}</span>
-    <hr>
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-12 justify-content-center">
+        <p><h6>{{object.autor}}</h6> <h6>{{object.fecha_publicacion}}</h6></p>
+        <p>{{object.cuerpo}}</p>
+        <hr>
+        </div>
     <a style="margin: 30px 0px 0px 0px;" class="btn btn-outline-dark" href="{% url 'reviews' %}">VOLVER A LAS REVIEWS</a>
+    </div>
 </section>
-</div>
 {% endblock contenido %}

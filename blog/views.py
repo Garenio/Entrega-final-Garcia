@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Review
-from blog.forms import ReviewFormulario
+from blog.forms import ReviewFormulario, ReviewUpdateForm
 
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review 
@@ -50,3 +50,14 @@ class ReviewDetailView(DetailView):
     model = Review
     success_url = reverse_lazy('reviews')
     template_name = "blog/detalle_review.html"
+
+class ReviewUpdateView(LoginRequiredMixin, UpdateView):
+    model = Review 
+    form_class = ReviewUpdateForm
+    success_url = reverse_lazy('reviews')
+    template_name = 'blog/editar_review.html'
+
+class ReviewDeleteView(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = reverse_lazy('reviews')
+    template_name = "blog/eliminar_review.html"

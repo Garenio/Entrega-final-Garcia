@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Eliminar Review{% endblock subtitulo %}
+
+{% block contenido %}
+
+<section style="padding:100px 20px; margin-left: 150px; margin-right: 150px;">
+
+    <h3 class="mb-3">¿Deseas eliminar la Review <FONT COLOR="#2082dd">{{object.titulo}}</FONT>?</h1>
+        <form class="form-label;" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn-danger mb-3" type="submit" value="CONFIRMAR"/>
+        </form>
+        <h6 class="mb-3"><a class="btn btn-outline-dark" href="{% url 'reviews' %}">CANCELAR</a></a></h6>
+
+</section>
+
+{% endblock contenido %}

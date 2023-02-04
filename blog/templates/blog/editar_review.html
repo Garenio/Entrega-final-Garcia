@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Modificar Review{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input style="margin: 10px" class="btn btn-outline-dark" type="submit" value="MODIFICAR" />
+      </form>
+</section>
+</div>
+{% endblock contenido %}

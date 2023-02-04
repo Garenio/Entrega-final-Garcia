@@ -29,6 +29,7 @@ urlpatterns = [
     path('logout/', CustomLogoutView.as_view(), name="logout"),
     path('about/', about, name="about"),
     path('usuario/', include('usuario.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

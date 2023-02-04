@@ -7,13 +7,12 @@
 
 <div class="container px-4 px-lg-5">
 <section style="padding:100px 10px;">
-    <h2>Editar Perfil</h2>
-    <h10>Selecciona los datos que quieras cambiar y luego dale click en guardar.</h10>
-    <form class="form-control form-text" method="post" style=" margin-top:10px">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-outline-dark" type="submit" value="GUARDAR" />
-    </form>
+    <h2>Modificar datos:</h2>
+        <form class="form-control form-text" method="post" style=" margin-top:10px" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input class="btn btn-outline-dark" type="submit" value="GUARDAR" />
+        </form>
 </section>
 </div>
 {% endblock contenido %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Agregar Review{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <span>Usuario:</span> <strong>{{ request.user }}</strong>
+    <form class="form-control form-text" method="post" style=" margin-top:10px" enctype="multipart/form-data">
+        {% csrf_token %}  
+          {% for field in form.visible_fields %}
+              <div class="form-text">
+                  <label for="id_{{ field.name }}">{{ field.label }}:</label>
+                  {{ field }}
+      
+                  {% if field.errors %}
+                      <small>
+                          {% for error in field.errors %}
+                              <p class="text text-danger">{{ error|escape }}</p>
+                          {% endfor %}
+                      </small>
+                        {% endif %}
+        
+                    </div>
+                {% endfor %}
+        <input style="margin: 10px" class="btn btn-outline-dark" type="submit" value="ENVIAR" />
+        <input type="hidden" name="usuario" value="{{ request.user.pk }}"/>
+      </form>
+</section>
+</div>
+{% endblock contenido %}

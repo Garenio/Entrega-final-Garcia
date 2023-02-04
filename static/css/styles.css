@@ -2180,9 +2180,10 @@ progress {
 }
 
 .form-text {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: 0.875em;
   color: #6c757d;
+  position: relative;
 }
 
 .form-control {

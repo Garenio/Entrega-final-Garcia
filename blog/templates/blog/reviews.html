@@ -5,6 +5,20 @@
 
 {% block contenido %}
 
+{% if reviews|length_is:"0" %}
+
+<div class="container px-4 px-lg-5">
+    <section style="padding:100px 10px;">
+        <h1 class="mb-4">Todavía no hay ninguna review.</h1>
+        <div class="mb-4">
+            <a style="margin: 20px 0px 0px 0px;" class="btn btn-outline-dark" href="{% url 'agregar_review' %}">AGREGAR REVIEW</a>
+        </div>
+    </section>
+</div>
+
+
+{% else %}
+
 <div class="container px-4 px-lg-5">
 <section style="padding:100px 10px;">
     <h1 class="mb-4">Listado de Reviews:</h1>
@@ -35,10 +49,16 @@
             {% if user.id == review.usuario_id %}
                 <td><a href="{% url 'editar_review' review.id %}"><FONT COLOR="GREEN">Editar</FONT></a></td>
                 <td><a href="{% url 'eliminar_review' review.id %}"><FONT COLOR="RED">Eliminar</FONT></a></td>
+            {% elif user.is_staff %}
+                <td><a href="{% url 'editar_review' review.id %}"><FONT COLOR="GREEN">Editar</FONT></a></td>
+                <td><a href="{% url 'eliminar_review' review.id %}"><FONT COLOR="RED">Eliminar</FONT></a></td>
             {% endif %}
         </tr>
         {% endfor %}
     </table>
 </section>
 </div>
+
+{% endif %}
+
 {% endblock contenido %}

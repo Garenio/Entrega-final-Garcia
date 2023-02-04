@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Reviews{% endblock subtitulo %}
+
+{% block contenido %}
+
+<div class="container px-4 px-lg-5">
+<section style="padding:100px 10px;">
+    <h1 class="mb-4">Listado de Reviews:</h1>
+    <form class="form-label" action="{% url 'buscar_reviews' %}" method="post">
+        {% csrf_token %}
+        <h6>Puedes buscar Reviews por su Título o su Autor</h6>
+        <input type="text" name="busqueda">
+        <input type="submit" value="Buscar">
+    </form>
+    <div class="mb-4">
+        <a style="margin: 20px 0px 0px 0px;" class="btn btn-outline-dark" href="{% url 'agregar_review' %}">AGREGAR REVIEW</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th><b>TITULO</b></th>
+            <th><b>AUTOR</b></th>
+            <th><b>FECHA DE PUBLICACION</b></th>
+            <th><b></b></th>
+            <th><b></b></th>
+            <th><b></b></th>
+        </tr>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review.titulo }}</td>
+            <td>{{ review.autor }}</td>
+            <td>{{ review.fecha_publicacion }}</td>
+            <td><a href="{% url 'detalle_review' review.id %}"><FONT COLOR="#FF3D00">Ver review completa</FONT></a></td>
+            {% if user.id == review.usuario_id %}
+                <td><a href=""><FONT COLOR="GREEN">Editar</FONT></a></td>
+                <td><a href=""><FONT COLOR="RED">Eliminar</FONT></a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+</div>
+{% endblock contenido %}

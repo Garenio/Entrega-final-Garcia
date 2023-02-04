@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block subtitulo %}Detalle Review{% endblock subtitulo %}
+
+{% block contenido %}
+
+<header class="masthead" style="background-image: url({{object.imagen.url}})">
+    <div class="container position-relative px-4 px-lg-12">
+        <div class="row gx-4 gx-lg-12 justify-content-center">
+            <div class="col-md-10 col-lg-12 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{object.titulo}}</h1>
+                    <span class="subheading">{{object.subtitulo}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+<section style="padding:10px 10px;">
+    <p><h6>{{object.autor}}</h6> <h6>{{object.fecha_publicacion}}</h6></p>
+    <span>{{object.cuerpo}}</span>
+    <hr>
+    <a style="margin: 30px 0px 0px 0px;" class="btn btn-outline-dark" href="{% url 'reviews' %}">VOLVER A LAS REVIEWS</a>
+</section>
+</div>
+{% endblock contenido %}

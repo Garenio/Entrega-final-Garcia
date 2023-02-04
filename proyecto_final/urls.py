@@ -20,16 +20,28 @@ from django.urls import path, include
 
 from tecnoreview.views import home, about
 from registro.views import registro, login_view, CustomLogoutView
+from blog.views import listar_reviews, buscar_reviews, ReviewDetailView
 
 urlpatterns = [
-    path('', home, name="home"),
     path('admin/', admin.site.urls),
+
+    ## URLS GENERALES
+    path('', home, name="home"),
+    path('about/', about, name="about"),
+
+    ## URLS REGISTRO
     path('registro/', registro, name="registro"),
     path('login/', login_view, name="login"),
     path('logout/', CustomLogoutView.as_view(), name="logout"),
-    path('about/', about, name="about"),
+
+    ## URLS USUARIOS
     path('usuario/', include('usuario.urls')),
+
+    ## URLS REVIEWS
+    path('reviews/', listar_reviews, name="reviews"),
+    path('buscar-reviews/', buscar_reviews, name="buscar_reviews"),
     path('review/', include('blog.urls')),
+    path('reviews/<int:pk>/', ReviewDetailView.as_view(), name="detalle_review"),
 
 ]
 

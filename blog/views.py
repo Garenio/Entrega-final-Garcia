@@ -18,9 +18,35 @@ from blog.forms import ReviewFormulario
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review 
     form_class = ReviewFormulario
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('reviews')
     template_name = 'blog/agregar_review.html'
 
-def reviews_home(request):
-    reviews = Review.objects.all().order_by('-fecha_publicacion')[:4]
-    return render(request, 'home.html', {'reviews': reviews})
+def listar_reviews(request):
+    contexto = {
+        'reviews': Review.objects.all()
+    }
+    return render(
+        request=request,
+        template_name='blog/reviews.html',
+        context=contexto,
+    )
+
+def buscar_reviews(request):
+    if request.method == "POST":
+        data = request.POST
+        reviews = Review.objects.filter(
+            Q(titulo__contains=data['busqueda']) | Q(autor__contains=data['busqueda'])
+        )
+        contexto = {
+            'reviews': reviews
+        }
+        return render(
+            request=request,
+            template_name='blog/reviews.html',
+            context=contexto,
+        )
+
+class ReviewDetailView(DetailView):
+    model = Review
+    success_url = reverse_lazy('reviews')
+    template_name = "blog/detalle_review.html"
